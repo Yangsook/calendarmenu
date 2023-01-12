@@ -24,9 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y=03bw)1(w$(jjfnpb^=(7h!=xdobq6x7lr$_@hu&5pj6p^6w8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'calendarmenu.netlify.app'
+]
 
 
 # Application definition
