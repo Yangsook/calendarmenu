@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="content-main">
+        <h2 class="page-title">My Menu  </h2>
+        <br>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+              <div class="card">
+                <h6 class="card-header card-title"><b>메뉴 등록</b></h6>
+                <div class="card-body">
+                    <p class="card-text"></p>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <table>
+                            {{ form.as_table }}
+                        </table>
+                        <br>
+                        <button type="submit" class="btn btn-success medium">저장하기</button>
+                    </form>
+                
+                    <!-- <script>
+                        var day = document.getElementById('{{ form.day.id_for_label }}')
+                        day.value = '{{ day }}';
+                    </script>                 -->               
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h6 class="card-header card-title"><b>등록된 메뉴 리스트</b></h6>
+                <div class="card-body">
+                    <table class="table table-sm table-hover table-borderless">
+                        <tbody>
+                            {% for list in mymenulist %}
+                            <tr>
+                            <td>* {{ list }}</td>
+                            <td><h6 class="font-lighter">{{ list.category  }}</h6></td>
+                            <td><a class="btn btn-outline-warning mini" href="{% url 'mymenu_delete' pk=list.id  %}"> 삭제 </a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table> 
+
+                  <!-- <p class="card-text">
+                  <ul>
+                    {% for menu in mymenulist %}
+                        <li>{{ menu }}  <a class="btn btn-outline-warning mini" href="{% url 'mymenu_delete' menu.id  %}"> 삭제 </a></li>
+                    {% endfor %}
+                  </ul>   -->
+                  </p>              
+                </div>
+              </div>
+            </div>
+            
+        </div>
+        <br><br>
+    </div>
+        
+{% endblock  %}
+

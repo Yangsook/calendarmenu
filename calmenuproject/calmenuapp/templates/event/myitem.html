@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="content-main">
+        <h2 class="page-title">My Grocery  </h2>
+        <br>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+              <div class="card">
+                <h6 class="card-header card-title"><b>재료 등록</b></h6>
+                <div class="card-body">
+                    <!-- <p class="card-text"></p> -->
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <table>
+                            {{ form.as_table }}
+                        </table>
+                        <Br>
+                        <button type="submit" class="btn btn-success medium">저장하기</button>
+                        <!-- <input type="submit" value="저장하기"> -->
+                    </form>
+             
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h6 class="card-header card-title"><b>등록된 재료 리스트</b></h6>
+                <div class="card-body">
+                    <table class="table table-sm table-hover table-borderless">
+                    <tbody>
+                        {% for item in myitemlist %}
+                        <tr>
+                        <td>* {{ item }}</td>
+                        <td><h6 class="font-lighter">{{ item.category  }}</h6></td>
+                        <td><a class="btn btn-outline-warning mini" href="{% url 'myitem_delete' pk=item.id  %}"> 삭제 </a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>                                          
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <br><br>
+    </div>
+        
+{% endblock  %}
+

@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="content-main">
+        <h2>My Menu  </h2>
+        <br>
+        <div class="card">
+            <div class="card-header card-title">
+                <b>메뉴 등록</b>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'mymenu_new' %}" method="POST">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <th><label for="menu">메뉴:</label></th>
+                        <td><input type="text" name="menu" maxlength="200" required id="menu"></td>
+                    </tr>
+                    <tr>
+                        <th><label for="category">카테고리:</label></th>
+                        <td>
+                            <input type="hidden" name="userid" id="userid">
+                            <select name="category" id="category">
+                            <option value="" selected>---------  선택 ---------</option>
+                            <option value="수프">수프</option>
+                            <option value="빵">빵</option>
+                            <option value="면">면</option>
+                            <option value="밥">밥</option>
+                            <option value="국">국</option>
+                            <option value="죽">죽</option>
+                            <option value="반찬">반찬</option>
+                            <option value="도시락">도시락</option>
+                            <option value="고기">고기</option>
+                            <option value="생선">생선</option>
+                            <option value="분식">분식</option>
+                            <option value="전골">전골</option>
+                            <option value="손님초대">손님초대</option>
+                            <option value="외식">외식</option>
+                            <option value="*기타">기타</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="menu">재료:</label></th>
+                        <!-- <td><input type="checkbox" name="myitem" maxlength="200" required id="myitem"></td> -->
+                        <td>
+                            <table class="table table-striped">
+                            <tbody>
+<!--                                 
+
+                                {% with pre_category="" %}
+
+                                {% for item in myitemlist %}
+                                {%      if item.category != pre_category %}
+                                {%          pre_category = item.category %}
+                                <tr>
+                                    <th scope="row">{{ pre_category }}</th>
+                                    <td>
+                                {%      endif %}
+
+                                <input type="checkbox" name="_selected_action" value="12" class="action-select">{{ item.item }}
+
+                                {%      if item.category != pre_category %}
+                                    </td>
+                                </tr>
+                                {%      endif %}
+
+                                {% endfor %}
+                                {% endwith %}
+                                <tr>
+                                    <th scope="row">고기</th>
+                                    <td>
+                                        <input type="checkbox" name="_selected_action" value="12" class="action-select">함박스테이크
+                                        <input type="checkbox" name="_selected_action" value="12" class="action-select">함박스테이크
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table> -->
+
+                            <!-- <div class="results">
+                                <table id="result_list">
+                                <thead>
+                                <tr>
+                                
+                                <th scope="col" class="action-checkbox-column">
+                                    
+                                    <div class="text"><span><input type="checkbox" id="action-toggle"></span></div>
+                                    <div class="clear"></div>
+                                </th>
+                                <th scope="col" class="column-__str__">
+                                    
+                                    <div class="text"><span>My menu</span></div>
+                                    <div class="clear"></div>
+                                </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                
+                                
+                                <tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="12" class="action-select"></td><th class="field-__str__"><a href="/admin/calmenuapp/mymenu/12/change/">함박스테이크</a></th></tr>
+                                
+                                
+                                <tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="11" class="action-select"></td><th class="field-__str__"><a href="/admin/calmenuapp/mymenu/11/change/">기타</a></th></tr>
+                                
+                                
+                                <tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="4" class="action-select"></td><th class="field-__str__"><a href="/admin/calmenuapp/mymenu/4/change/">소불고기전골</a></th></tr>
+                                
+                                
+                                <tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="3" class="action-select"></td><th class="field-__str__"><a href="/admin/calmenuapp/mymenu/3/change/">생선가스</a></th></tr>
+                                
+                                
+                                <tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="2" class="action-select"></td><th class="field-__str__"><a href="/admin/calmenuapp/mymenu/2/change/">파니니</a></th></tr>
+                                
+                                
+                                <tr><td class="action-checkbox"><input type="checkbox" name="_selected_action" value="1" class="action-select"></td><th class="field-__str__"><a href="/admin/calmenuapp/mymenu/1/change/">와플</a></th></tr>
+                                
+                                </tbody>
+                                </table>
+                                </div> -->
+                                
+
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <input type="submit" value="저장하기">
+                </form>            
+            </div>
+        </div>
+
+        <br><br>
+    </div>
+        
+{% endblock  %}
+

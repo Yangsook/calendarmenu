@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="content-main">
+        <h2 class="page-title">My Calendar Menu - 1/8/2023</h2>
+        <br>
+        <ul>
+        {% for menu in daymenulist %}
+            {{ menu.menu }}<br>
+        {% endfor %}
+        </ul>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <button type="submit" class="btn btn-success medium">저장하기</button>
+        </form>
+      
+
+    </div>
+        
+{% endblock  %}
+

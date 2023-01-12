@@ -1,0 +1,39 @@
+* { font-family: sans-serif; }
+
+/* .month-head-text {
+    font-size: 28px; !important
+    text-align: right;
+} */
+
+
+.page-title {color: #8e4c87;}
+.font-lighter {color:rgb(190, 190, 186)}
+.calendar-event {color: #8e4c87;}
+
+a { color: #8e4c87; }
+a:visited { color: #8e4c87; }
+a:hover { color: red; }
+a:active { color: red; }
+
+
+.btn.mini, 
+.btn-two.mini, 
+.btn-gradient.mini, 
+.btn-effect.mini {
+  padding: 2px 12px;  
+  font-size: 12px;
+}
+
+.btn.medium, 
+.btn-two.medium, 
+.btn-gradient.medium, 
+.btn-effect.medium {
+  padding: 3px 12px 2px 12px;  
+  font-size: 15px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+

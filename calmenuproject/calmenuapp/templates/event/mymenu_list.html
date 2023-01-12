@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="content-main">
+        <h2 class="page-title">My Menu List </h2>
+        <br>
+        <!-- <a class="btn btn-outline-primary mini" href="{% url 'mymenu_new' %}"> 새 메뉴 등록 </a> -->
+        <table class="table table-bordered table-hover" style="width: 70%;">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">메뉴</th>
+                <th scope="col">카테고리</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>        
+        <tbody>
+            {% for list in mymenulist %}
+            <tr>
+            <td> {{ list }}</td>
+            <td><p class="fw-lighter lh-1">{{ list.category  }}</p></td>
+            <td>
+                <a class="btn btn-outline-success mini" href="{% url 'mymenu_edit' pk=list.id  %}"> 수정 </a>
+                <a class="btn btn-outline-warning mini" href="{% url 'mymenu_delete' pk=list.id  %}"> 삭제 </a>
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        <br><br>
+    </div>
+        
+{% endblock  %}
+
